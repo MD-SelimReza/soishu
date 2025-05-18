@@ -11,8 +11,7 @@ export const Shipping = () => {
             shipping & return
           </h1>
           <h1 className="text-gray-400 text-lg text-center">
-            If your shoes aren't perfect, return them <br /> within 7 days for a
-            full refund.
+            Hassle-free returns, no questions asked.
           </h1>
         </div>
         <div className="">
@@ -21,9 +20,7 @@ export const Shipping = () => {
             SHOP WITH CONFIDENCE
           </h1>
           <h1 className="text-gray-400 text-lg text-center">
-            Our Buyer Protection covers your purchase
-            <br />
-            from click to delivery.
+            Protected from purchase to doorstep.
           </h1>
         </div>
 
@@ -33,8 +30,7 @@ export const Shipping = () => {
             SAFE PAYMENT
           </h1>
           <h1 className="text-gray-400 text-lg text-center">
-            Pay with the world's most popular and <br />
-            secure payment methods.{' '}
+            Secure checkout every step of the way.
           </h1>
         </div>
       </div>
