@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Main } from '../Layout/Main';
-import { Index } from '../Pages/Home';
 import ProductDetails from '../Shared/Shop/ProductDetails';
 import Cart from '../Pages/Cart/Cart';
+import { Index } from '../Pages/Home/Index';
 
 export const router = createBrowserRouter([
   {
