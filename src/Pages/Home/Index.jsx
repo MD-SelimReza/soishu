@@ -1,3 +1,4 @@
+import ProductDetails from '../../Shared/Shop/ProductDetails';
 import { Shop } from '../../Shared/Shop/Shop';
 import { VideoSection } from '../VideoSection/VideoSection';
 import { Banner } from './Banner';
@@ -11,6 +12,7 @@ export const Index = () => {
   return (
     <div className="">
       <Banner />
+      <ProductDetails />
       <Offer />
       <Shipping />
       {/* <New /> */}

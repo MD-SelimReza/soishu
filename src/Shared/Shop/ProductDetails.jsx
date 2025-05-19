@@ -1,28 +1,38 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import ReactImageMagnify from 'react-image-magnify';
 import bg from './images/shop-bg.png';
+import { productsData } from '../../Data/product';
+import { FaCheck } from 'react-icons/fa';
 
 const ProductDetails = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [activeImg, setActiveImg] = useState('');
   const [activeColor, setActiveColor] = useState(null);
   const [activeSize, setActiveSize] = useState(null);
   const [qty, setQty] = useState(1);
 
+  const id = 100001;
+
   /* fetch once */
   useEffect(() => {
-    fetch('/products.json')
-      .then((r) => r.json())
-      .then((d) => {
-        const found = d.find((p) => p._id.toString() === id);
-        setProduct(found);
-        setActiveImg(
-          found?.product?.[0]?.image ?? found?.colors?.[0]?.image ?? ''
-        );
-      });
+    // fetch('/products.json')
+    //   .then((r) => r.json())
+    //   .then((d) => {
+    //     const found = d.find((p) => p._id.toString() === id);
+    //     setProduct(found);
+    //     setActiveImg(
+    //       found?.product?.[0]?.image ?? found?.colors?.[0]?.image ?? ''
+    //     );
+    //   });
+
+    const found = productsData.find((p) => p._id.toString() === id.toString());
+    setProduct(found);
+    setActiveImg(found?.product?.[0]?.image ?? found?.colors?.[0]?.image ?? '');
   }, [id]);
+
+  console.log(product);
 
   if (!product) return <div className="p-20 text-center">Loading…</div>;
 
@@ -38,8 +48,10 @@ const ProductDetails = () => {
     4
   );
 
+  console.log(thumbs);
+
   const changeColor = (c) => {
-    setActiveColor(c.name);
+    setActiveColor(c);
     setActiveImg(c.image);
   };
 
@@ -62,22 +74,22 @@ const ProductDetails = () => {
         {/* LEFT column */}
         <div className="lg:w-1/2 flex gap-4">
           {/* thumbnails */}
-          <div className="flex lg:flex-col gap-6 h-[600px]">
+          <div className="flex lg:flex-col gap-6">
             {thumbs.map(({ image }, i) => (
               <button
                 key={i}
                 onClick={() => setActiveImg(image)}
-                className={`border-2 overflow-hidden w-20 h-20 lg:w-36 lg:h-36 bg-[#f0ecec]
-                  ${
-                    activeImg === image
-                      ? 'border-[#9E6747]'
-                      : 'border-transparent'
-                  }`}
+                className={`overflow-hidden w-20 h-20 lg:w-36 lg:h-36 bg-[#f0ecec] border rounded transition-all duration-200
+                          ${
+                            activeImg === image
+                              ? 'border-[#2f3133]'
+                              : 'border-transparent'
+                          }`}
               >
                 <img
                   src={image}
                   alt=""
-                  className="object-cover  w-full h-full"
+                  className="object-cover object-center w-full h-full"
                 />
               </button>
             ))}
@@ -85,7 +97,7 @@ const ProductDetails = () => {
 
           {/* Main image + zoom pane to the RIGHT */}
           <div className="flex-1 flex items-center">
-            <div className="h-[600px] object-contain border bg-[#f0ecec] w-full">
+            <div className="object-contain border bg-[#f0ecec] w-full">
               {' '}
               {/* fixed tall wrapper */}
               <ReactImageMagnify
@@ -121,65 +133,56 @@ const ProductDetails = () => {
         {/* RIGHT column */}
         <div className="lg:w-1/2 mt-10 lg:mt-0">
           <h2 className="text-lg uppercase">{product.name}</h2>
-          <p className="text-3xl font-semibold pt-2 ">{product.title}</p>
+          {/* <p className="text-3xl font-semibold pt-2 ">{product.title}</p> */}
 
           {/* price */}
           <p className="text-2xl font-semibold mb-6 mt-4 border-b pb-4">
             <span className="text-[#9E6747]">Tk.</span> {sale}
             {hasDiscount && (
               <>
-                {/* <span className="text-gray-300 line-through ml-3 text-lg font-normal">
-                  Tk. {product.price}
-                </span> */}
                 <span className="text-gray-500 line-through ml-3 text-lg font-normal">
                   Tk. {save}
                 </span>{' '}
-                <span className="text-black text-lg pl-1">You save:</span>{' '}
+                {/* <span className="text-black text-lg pl-1">You save:</span>{' '} */}
               </>
             )}
           </p>
 
-          {/* stock */}
-          <p
-            className={`mb-4 font-medium ${
-              product.stock === 'in' ? 'text-green-600' : 'text-red-500'
-            }`}
-          >
-            {product.stock === 'in' ? 'In Stock' : 'Out of Stock'}
-          </p>
-
           {/* color picker */}
-          <h3 className="font-semibold mb-2">Select color:</h3>
-          <div className="flex gap-3 mb-6">
-            {(product.colors ?? []).map((c) => (
-              <button
-                key={c.name}
-                onClick={() => changeColor(c)}
-                className={`w-12 h-12 rounded-full overflow-hidden ring-2
-                  ${
-                    activeColor === c.name
-                      ? 'ring-[#9E6747]'
-                      : 'ring-transparent'
-                  }`}
-                title={c.name}
-              >
-                <img
-                  src={c.image}
-                  alt={c.name}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
+          <div className="flex items-center gap-2 mb-6">
+            <h3 className="font-semibold">Color:</h3>
+            <div className="flex gap-3">
+              {(product.colors ?? []).map((c) => (
+                <button
+                  key={c.name}
+                  onClick={() => changeColor(c)}
+                  style={{
+                    backgroundColor: c.name,
+                    borderColor:
+                      c?.name === activeColor?.name ? '#2f3133' : 'transparent',
+                  }}
+                  className="relative w-5 h-5 rounded-full cursor-pointer"
+                  title={c.name}
+                >
+                  {c?.name === activeColor?.name && (
+                    <FaCheck className="absolute inset-0 m-auto text-xs text-white" />
+                  )}
+                  {!c && (
+                    <span className="absolute inset-0 rounded-full border-2 border-red-500 animate-[ping_1s_ease-in-out_3]" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* size picker */}
-          <h3 className="font-semibold mb-2">Select size:</h3>
+          <h3 className="font-semibold mb-2">Size:</h3>
           <div className="flex flex-wrap gap-3 mb-6">
             {[37, 38, 39, 41, 42, 43].map((sz) => (
               <button
                 key={sz}
                 onClick={() => setActiveSize(sz)}
-                className={`w-12 h-12 flex items-center justify-center border 
+                className={`w-12 h-12 flex items-center justify-center border rounded 
                   ${
                     activeSize === sz
                       ? ' text-black border-[#9E6747]'
@@ -191,36 +194,38 @@ const ProductDetails = () => {
             ))}
           </div>
 
-          {/* quantity */}
-          <div className="flex items-center gap-4 mb-8">
-            <span className="font-semibold">Quantity:</span>
-            <div className="border flex items-center justify-center">
-              <button
-                onClick={() => setQty((q) => Math.max(1, q - 1))}
-                className="w-9 h-9 border-r flex items-center justify-center cursor-pointer"
-              >
-                −
-              </button>
-              <span className="min-w-[2ch] px-3 text-center">{qty}</span>
-              <button
-                onClick={() => setQty((q) => Math.min(10, q + 1))}
-                className="w-9 h-9 border-l  flex items-center justify-center cursor-pointer"
-              >
-                +
-              </button>
+          <div className="flex items-center gap-5">
+            {/* quantity */}
+            <div className="flex items-center gap-4">
+              <div className="border rounded flex items-center justify-center">
+                <button
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  className="w-9 h-11 border-r flex items-center justify-center cursor-pointer"
+                >
+                  −
+                </button>
+                <span className="min-w-[2ch] px-[15px] text-center">{qty}</span>
+                <button
+                  onClick={() => setQty((q) => Math.min(10, q + 1))}
+                  className="w-9 h-11 border-l  flex items-center justify-center cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div className=" flex justify-between gap-14">
-            <div className="w-[50%]">
-              <button
-                // disabled={product.stock !== 'in' || !activeSize}
-                className="px-12 py-3 w-full bg-green-900 text-white text-2xl disabled:opacity-40 "
-              >
-                Checkout
-              </button>
+            <div className="flex justify-between gap-14">
+              <div className="w-full">
+                <button
+                  // disabled={product.stock !== 'in' || !activeSize}
+                  className="px-12 py-2 w-full bg-green-900 text-white text-2xl disabled:opacity-40 rounded"
+                >
+                  Checkout
+                </button>
+              </div>
             </div>
           </div>
+          <p className="mt-2">Left of stock 3</p>
         </div>
       </div>
     </div>

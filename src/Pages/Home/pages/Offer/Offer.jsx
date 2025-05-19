@@ -50,11 +50,11 @@ export const Offer = () => {
       <div className="max-w-[1400px] mx-auto h-full">
         <Tabs>
           {/* Tabs */}
-          <TabList className="flex gap-5 md:gap-5 justify-center md:justify-normal w-fit mx-auto ">
+          <TabList className="flex gap-5 md:gap-5 justify-center md:justify-normal w-fit mx-auto text-[#2f3133]">
             {grouped.map(({ name }) => (
               <Tab
                 key={name}
-                className="cursor-pointer px-4 py-2 border hover:bg-[#f7ecd9]
+                className="cursor-pointer px-4 py-2 border hover:bg-[#f7ecd9] text-[#2f3133]
                            data-[selected]:bg-[#B2672A] data-[selected]:text-white
                            rounded outline-none"
               >
@@ -103,7 +103,7 @@ const ProductCard = ({ prod }) => {
   const [colour, setColour] = useState(null);
   const [size, setSize] = useState(null);
   const [warn, setWarn] = useState('');
-  const [bump, setBump] = useState(0); // used only to re-render
+  const [, setBump] = useState(0); // used only to re-render
 
   /* pick correct image */
   const img =
@@ -156,7 +156,7 @@ const ProductCard = ({ prod }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 flex flex-col gap-6">
+    <div className="bg-white rounded-2xl py-6 px-4 flex flex-col gap-6">
       {/* image */}
       <div className="text-center bg-[#F6F0E6] rounded-2xl">
         <img
@@ -168,7 +168,7 @@ const ProductCard = ({ prod }) => {
 
       {/* name + colours */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">{prod.name}</h1>
+        <h1 className="text-2xl font-semibold text-[#2f3133]">{prod.name}</h1>
         <div className="flex gap-2">
           {COLORS.map((c) => (
             <button
@@ -227,7 +227,7 @@ const ProductCard = ({ prod }) => {
               ${
                 size === sz
                   ? 'bg-[#B2672A] text-white border-[#B2672A]'
-                  : 'hover:bg-[#B2672A]/10'
+                  : 'hover:bg-[#B2672A]/10 text-[#2f3133]'
               }`}
           >
             {sz}

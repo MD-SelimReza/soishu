@@ -10,8 +10,8 @@ export const Nav = () => {
 
   return (
     <div className="bg-[#F6F0E6] sticky top-0 z-40 select-none">
-      <div className=" max-w-[1400px] mx-auto w-full ">
-        <nav className="h-24 flex items-center justify-between px-4 md:px-0 lg:mx-0 relative z-50">
+      <div className=" max-w-[1440px] mx-auto w-full px-5">
+        <nav className="h-24 flex items-center justify-between relative z-50">
           <div className="md:order-2 lg:order-1">
             <Link to="/">
               <img
@@ -25,25 +25,25 @@ export const Nav = () => {
           <div className="hidden lg:order-2 lg:flex gap-8 text-lg uppercase font-medium">
             <Link
               to="/"
-              className="text-black text-lg hover:text-[#9E6747] font-light"
+              className="text-[#2f3133] text-lg hover:text-[#9E6747] font-light"
             >
               Home
             </Link>
             <Link
               to="/shop"
-              className="text-black text-lg hover:text-[#9E6747] font-light"
+              className="text-[#2f3133] text-lg hover:text-[#9E6747] font-light"
             >
               Shop
             </Link>
             <Link
               to="/about"
-              className="text-black text-lg hover:text-[#9E6747] font-light"
+              className="text-[#2f3133] text-lg hover:text-[#9E6747] font-light"
             >
               About Us
             </Link>
             <Link
               to="/contact"
-              className="text-black text-lg hover:text-[#9E6747] font-light"
+              className="text-[#2f3133] text-lg hover:text-[#9E6747] font-light"
             >
               Contact
             </Link>
@@ -59,19 +59,19 @@ export const Nav = () => {
             </a>
             <Link
               to="/search"
-              className="text-black text-2xl hover:text-[#9E6747]"
+              className="text-[#2f3133] text-2xl hover:text-[#9E6747]"
             >
               <IoSearchOutline />
             </Link>
             <Link
               to="/cart"
-              className="text-black text-2xl hover:text-[#9E6747]"
+              className="text-[#2f3133] text-2xl hover:text-[#9E6747]"
             >
               <BsCart2 />
             </Link>
             <Link
               to="/wishlist"
-              className="text-black text-2xl hover:text-[#9E6747]"
+              className="text-[#2f3133] text-2xl hover:text-[#9E6747]"
             >
               <IoMdHeartEmpty />
             </Link>
@@ -81,9 +81,9 @@ export const Nav = () => {
           <div className="lg:hidden md:order-3 order-3 text-3xl lg:order-3">
             <button onClick={() => setMobileMenuOpen(true)}>
               <div className="space-y-[8.5px]">
-                <div className="border-b-1 border-black w-[40px]"></div>
-                <div className="border-b-1 border-black w-[40px]"></div>
-                <div className="border-b-1 border-black w-[40px]"></div>
+                <div className="border-b-1 border-[#2f3133] w-[40px]"></div>
+                <div className="border-b-1 border-[#2f3133] w-[40px]"></div>
+                <div className="border-b-1 border-[#2f3133] w-[40px]"></div>
               </div>
             </button>
           </div>

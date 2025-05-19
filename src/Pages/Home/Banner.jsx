@@ -345,8 +345,8 @@ import bg from './images/banner.png';
 export const Banner = () => {
   return (
     <div className="bg-[#F6F0E6] mb-20 md:mb-32 select-none">
-      <div className=" max-w-[1400px] w-ful mx-auto">
-        <img src={bg} className=" w-full " alt="" />
+      <div className="max-w-[1400px] w-ful mx-auto px-3">
+        <img src={bg} className=" w-full " alt="Banner Image" />
       </div>
     </div>
   );

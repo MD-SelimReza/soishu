@@ -6,74 +6,90 @@ import { PiTiktokLogoFill } from 'react-icons/pi';
 export const Footer = () => {
   return (
     <footer className="bg-[#F6F0E6] text-[#2f3133]">
-      <div className="max-w-[1440px] w-full mx-auto lg:py-32 md:py-24 py-16 gap-8 px-5">
-        {/* Left Section */}
-        <div className="space-y-4">
-          <div className="mb-6">
+      <div className="max-w-[1440px] w-full mx-auto lg:pt-14 pt-12 pb-8 gap-8 px-5">
+        <div className="mb-8 flex flex-col lg:flex-row justify-between lg:gap-40">
+          {/* Center Discount Section */}
+          <div className="xl:max-w-2xl max-w-xl w-full">
             <img
               src="/logo.svg"
               className="w-[100px] md:w-[140px]"
               alt="Logo"
             />
-          </div>
-          <div className="flex flex-col md:flex-row justify-between items-start">
-            <p className="flex gap-2 text-xl md:text-2xl md:max-w-lg w-full">
-              <GrLocation className="text-[#b26729] text-4xl" />
-              H: 118/7, Chandrima R/A 03, Chandrima, Rajshahi, Bangladesh.
+            <p className="my-3 max-w-md text-[#2f3133]">
+              At <span className="text-[#2f3133]">soishu</span>, we craft shoes
+              that do more than just fit, they tell your story. Designed for the
+              modern man who walks with purpose, style, and quiet strength.
             </p>
-            <p className="flex items-center gap-2 text-xl md:text-2xl md:mt-0 mt-8 mb-3">
-              <FaWhatsapp className="text-[#b26729]" /> +8801805121001
+            <p className="flex items-center gap-2 text-lg mb-1.5">
+              <FaWhatsapp className="text-[#b26729]" />
+              <a
+                href="https://wa.me/8801805121001"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                +8801805121001
+              </a>
             </p>
-            <p className="flex items-center gap-2 text-xl md:text-2xl">
-              <FiMail className="text-[#b26729]" /> hey@soishu.com
+            <p className="flex items-center gap-2 text-lg">
+              <FiMail className="text-[#b26729]" />
+              <a
+                href="mailto:hey@soishu.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                hey@soishu.com
+              </a>
             </p>
-          </div>
-          <div className="flex space-x-4 mt-10">
-            <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
-              <FaFacebookF className="text-white rounded-full text-xl cursor-pointer" />
-            </div>
-            <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
-              <PiTiktokLogoFill className="text-white rounded-full text-xl cursor-pointer" />
-            </div>
-            <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
-              <FaYoutube className="text-white rounded-full text-xl cursor-pointer" />
-            </div>
-          </div>
-        </div>
-
-        <div className="md:my-24 my-10 flex flex-col md:flex-row justify-between">
-          {/* Center Discount Section */}
-          <div className="md:w-1/2 w-full">
-            <div className="flex items-end justify-center md:justify-normal gap-4">
-              <span className="text-9xl font-bold text-[#b26729]">21</span>
-              <span className="text-6xl font-medium mb-3">% OFF</span>
-            </div>
           </div>
 
           {/* Right Shop Section */}
-          <div className="md:w-1/2 w-full flex justify-between mt-10">
-            <div>
-              <h3 className="text-2xl mb-4">Shop</h3>
-              <ul className="space-y-1">
-                <li>Sandal</li>
-                <li>Chacci</li>
-                <li>Casual</li>
+          <div className="flex justify-between w-full">
+            <div className="mt-6">
+              <h3 className="text-xl mb-3">Shop</h3>
+              <ul className="space-y-1 text-[#2f3133]">
+                <li>
+                  <a href="#" className="hover:underline">
+                    Sandal
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    Shacci
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    Casual
+                  </a>
+                </li>
               </ul>
             </div>
-            <div>
-              <h3 className="text-2xl mb-4">Quick Link</h3>
-              <ul className="space-y-1">
-                <li>About Us</li>
-                <li>Contact</li>
-              </ul>
+            <div className="mt-6 text-[#2f3133]">
+              <h3 className="text-xl mb-3">Others</h3>
+              <p>Follow us on Social Media</p>
+              <div className="flex space-x-4 mt-5">
+                <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
+                  <FaFacebookF className="text-white rounded-full text-xl cursor-pointer" />
+                </div>
+                <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
+                  <PiTiktokLogoFill className="text-white rounded-full text-xl cursor-pointer" />
+                </div>
+                <div className="bg-[#b26729] size-8 flex justify-center items-center rounded-full">
+                  <FaYoutube className="text-white rounded-full text-xl cursor-pointer" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t-[1.5px] border-[#b26729CC] pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t-[1.5px] border-[#ebbd97cc] text-[#2f3133] pt-2 flex xl:text-sm text-xs flex-col font-light md:flex-row justify-between items-center">
           <p className="text-center">
             Copyright © 2025 BrandNasu, All rights reserved.
+          </p>
+          <p className="flex md:items-center justify-center gap-2 mt-2 md:mt-0">
+            <GrLocation className="text-[#b26729] font-semibold text-base mt-0.5" />
+            H: 118/7, Chandrima R/A 03, Chandrima, Rajshahi, Bangladesh.
           </p>
           <div className="flex space-x-6 mt-2 md:mt-0">
             <a href="#" className="hover:underline">

@@ -1,4 +1,4 @@
-[
+export const productsData = [
   {
     _id: 100001,
     name: 'Urban Boot',
@@ -8,10 +8,13 @@
     depend: 'new',
     discount: 50,
     colors: [
-      { name: 'Black', image: '/derby.png' },
-      { name: 'Brown', image: '/derby.png' },
-      { name: 'Tan', image: '/derby.png' },
-      { name: 'Gray', image: '/derby.png' },
+      // { name: 'Black', image: '/derby.png' },
+      // { name: 'Brown', image: '/derby2.jpg' },
+      // { name: 'Tan', image: '/derby3.jpg' },
+      // { name: 'Gray', image: '/derby4.png' },
+      { name: '#8B4513', image: '/derby2.jpg' }, // Brown
+      { name: '#D2B48C', image: '/derby3.jpg' }, // Tan
+      { name: '#808080', image: '/derby4.png' }, // Gray
     ],
   },
   {
